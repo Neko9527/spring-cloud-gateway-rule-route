@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: user
+  cloud:
+    nacos:
+      config:
+        namespace: 96cacedf-f2ed-4e81-98bd-674b32e33a61
+        server-addr: 192.168.124.128:8848
+        file-extension: yaml
+      discovery:
+        server-addr: 192.168.124.128:8848
+        namespace: 96cacedf-f2ed-4e81-98bd-674b32e33a61
+        metadata:
+          version: user1
+      username: nacos
+      password: nacos

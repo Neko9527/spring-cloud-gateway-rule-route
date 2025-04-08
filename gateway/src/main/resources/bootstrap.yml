@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: auth
+          uri: lb://auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      config:
+        namespace: 96cacedf-f2ed-4e81-98bd-674b32e33a61
+        server-addr: 192.168.124.128:8848
+      discovery:
+        server-addr: 192.168.124.128:8848
+        namespace: 96cacedf-f2ed-4e81-98bd-674b32e33a61
+      username: nacos
+      password: nacos
